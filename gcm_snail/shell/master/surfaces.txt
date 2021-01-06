@@ -1,0 +1,782 @@
+
+descript
+{
+	version,1
+}
+surface10
+{
+	element0,overlay,surface10.png,0,0
+}
+
+
+//main surface
+surface0
+{
+	//normal eyes; @user
+	animation1200.interval,always
+	animation1200.pattern0,overlay,98,1,0,0
+	
+	animation1299.interval,rarely
+	animation1299.pattern0,stop,1200
+	animation1299.pattern1,overlay,93,0,0,0
+	animation1299.pattern2,overlay,1802,25,0,0
+	animation1299.pattern3,overlay,93,50,0,0
+	animation1299.pattern4,overlay,98,10,0,0
+}
+surface1
+{
+	//normal eyes; right
+	animation1200.interval,always
+	animation1200.pattern0,overlay,97,1,0,0
+	
+	animation1299.interval,rarely
+	animation1299.pattern0,stop,1200
+	animation1299.pattern1,overlay,92,0,0,0
+	animation1299.pattern2,overlay,1802,25,0,0
+	animation1299.pattern3,overlay,92,50,0,0
+	animation1299.pattern4,overlay,97,10,0,0
+}
+surface2
+{
+	//normal eyes; left
+	animation1200.interval,always
+	animation1200.pattern0,overlay,96,1,0,0
+	
+	animation1299.interval,rarely
+	animation1299.pattern0,stop,1200
+	animation1299.pattern1,overlay,91,0,0,0
+	animation1299.pattern2,overlay,1802,25,0,0
+	animation1299.pattern3,overlay,91,50,0,0
+	animation1299.pattern4,overlay,96,10,0,0
+}
+surface3
+{
+	//normal eyes; up
+	animation1200.interval,always
+	animation1200.pattern0,overlay,95,1,0,0
+	
+	animation1299.interval,rarely
+	animation1299.pattern0,stop,1200
+	animation1299.pattern1,overlay,90,0,0,0
+	animation1299.pattern2,overlay,1802,25,0,0
+	animation1299.pattern3,overlay,90,50,0,0
+	animation1299.pattern4,overlay,95,10,0,0
+}
+surface4
+{
+	//normal eyes; down
+	animation1200.interval,always
+	animation1200.pattern0,overlay,94,1,0,0
+	
+	animation1299.interval,rarely
+	animation1299.pattern0,stop,1200
+	animation1299.pattern1,overlay,89,0,0,0
+	animation1299.pattern2,overlay,1802,25,0,0
+	animation1299.pattern3,overlay,89,50,0,0
+	animation1299.pattern4,overlay,94,10,0,0
+}
+surface5
+{
+	//^u^ eyes
+	animation1200.interval,always
+	animation1200.pattern0,overlay,1801,1,0,0
+}
+surface6
+{
+	//closed eyes
+	animation1200.interval,always
+	animation1200.pattern0,overlay,1802,1,0,0
+}
+surface7
+{
+	//owo eyes
+	animation1200.interval,always
+	animation1200.pattern0,overlay,1803,1,0,0
+}
+surface8
+{
+	//> < eyes
+	animation1200.interval,always
+	animation1200.pattern0,overlay,1804,1,0,0
+}
+surface9
+{
+	//midblink eyes; @user
+	animation1200.interval,always
+	animation1200.pattern0,overlay,93,1,0,0
+}
+surface11
+{
+	//midblink eyes; right
+	animation1200.interval,always
+	animation1200.pattern0,overlay,92,1,0,0
+}
+surface12
+{
+	//midblink eyes; left
+	animation1200.interval,always
+	animation1200.pattern0,overlay,91,1,0,0
+}
+surface13
+{
+	//midblink eyes; up
+	animation1200.interval,always
+	animation1200.pattern0,overlay,90,1,0,0
+}
+surface14
+{
+	//midblink eyes; down
+	animation1200.interval,always
+	animation1200.pattern0,overlay,89,1,0,0
+}
+
+//shell on floor
+surface20
+{
+	element0,overlay,surface0.png,0,0
+	
+	//shell
+	animation0.interval,bind
+	animation0.pattern0,add,1001,0,0,0
+	animation1.interval,bind
+	animation1.pattern0,add,1006,0,0,0
+	animation2.interval,bind
+	animation2.pattern0,add,1011,0,0,0
+	animation3.interval,bind
+	animation3.pattern0,add,1016,0,0,0
+}
+surface21
+{
+	element0,overlay,surface0.png,0,0
+	
+	//shell
+	animation0.interval,bind
+	animation0.pattern0,add,1002,0,0,0
+	animation1.interval,bind
+	animation1.pattern0,add,1007,0,0,0
+	animation2.interval,bind
+	animation2.pattern0,add,1012,0,0,0
+	animation3.interval,bind
+	animation3.pattern0,add,1017,0,0,0
+}
+surface22
+{
+	element0,overlay,surface0.png,0,0
+	
+	//shell
+	animation0.interval,bind
+	animation0.pattern0,add,1003,0,0,0
+	animation1.interval,bind
+	animation1.pattern0,add,1008,0,0,0
+	animation2.interval,bind
+	animation2.pattern0,add,1013,0,0,0
+	animation3.interval,bind
+	animation3.pattern0,add,1018,0,0,0
+}
+surface23
+{
+	element0,overlay,surface0.png,0,0
+	
+	//shell
+	animation0.interval,bind
+	animation0.pattern0,add,1004,0,0,0
+	animation1.interval,bind
+	animation1.pattern0,add,1009,0,0,0
+	animation2.interval,bind
+	animation2.pattern0,add,1014,0,0,0
+	animation3.interval,bind
+	animation3.pattern0,add,1019,0,0,0
+}
+
+
+
+surface.append0-14,!10
+{
+	element0,overlay,surface0.png,0,0
+	
+	//shell
+	animation0.interval,bind
+	animation0.pattern0,add,1000,0,0,0
+	animation1.interval,bind
+	animation1.pattern0,add,1005,0,0,0
+	animation2.interval,bind
+	animation2.pattern0,add,1010,0,0,0
+	animation3.interval,bind
+	animation3.pattern0,add,1015,0,0,0
+	
+	//back arm
+	animation100.interval,always
+	animation100.pattern0,overlay,1100,1,0,0
+	
+		animation101.interval,never
+		animation101.pattern0,stop,100
+		animation101.pattern1,overlay,1101,0,0,0
+		animation102.interval,never
+		animation102.pattern0,stop,100
+		animation102.pattern1,overlay,1102,0,0,0
+		animation103.interval,never
+		animation103.pattern0,stop,100
+		animation103.pattern1,overlay,1103,0,0,0
+		animation104.interval,never
+		animation104.pattern0,stop,100
+		animation104.pattern1,overlay,1104,0,0,0
+		animation105.interval,never
+		animation105.pattern0,stop,100
+		animation105.pattern1,overlay,1105,0,0,0
+		animation106.interval,never //rock
+		animation106.pattern0,stop,100
+		animation106.pattern1,overlay,1105,0,0,0
+		animation106.pattern2,overlay,99,300,0,0
+		animation107.interval,never
+		animation107.pattern0,stop,100
+		animation107.pattern1,overlay,1106,0,0,0
+		animation108.interval,never
+		animation108.pattern0,stop,100
+		animation108.pattern1,overlay,1107,0,0,0
+		animation109.interval,never //arm flap
+		animation109.pattern0,stop,100
+		animation109.pattern1,overlay,1104,0,0,0
+		animation109.pattern2,overlay,1107,100,0,0
+		animation109.pattern3,overlay,1104,200,0,0
+		animation110.interval,never //black, obelisk-shaped rock
+		animation110.pattern0,stop,100
+		animation110.pattern1,overlay,1105,0,0,0
+		animation110.pattern2,overlay,88,300,0,0
+		animation111.interval,never //black-and-gray speckled rock
+		animation111.pattern0,stop,100
+		animation111.pattern1,overlay,1105,0,0,0
+		animation111.pattern2,overlay,87,300,0,0
+		animation112.interval,never //mossy rock
+		animation112.pattern0,stop,100
+		animation112.pattern1,overlay,1105,0,0,0
+		animation112.pattern2,overlay,86,300,0,0
+		animation113.interval,never //striped rock
+		animation113.pattern0,stop,100
+		animation113.pattern1,overlay,1105,0,0,0
+		animation113.pattern2,overlay,85,300,0,0
+		animation114.interval,never //handful of marbles
+		animation114.pattern0,stop,100
+		animation114.pattern1,overlay,1105,0,0,0
+		animation114.pattern2,overlay,84,300,0,0
+	
+	//legs
+	animation200.interval,bind
+	animation200.pattern0,add,1200,0,0,0
+	animation201.interval,bind
+	animation201.pattern0,add,1201,0,0,0
+	animation202.interval,bind
+	animation202.pattern0,add,1202,0,0,0
+	animation203.interval,bind
+	animation203.pattern0,add,1203,0,0,0
+	
+	//torso
+	animation300.interval,bind
+	animation300.pattern0,add,1300,0,0,0
+	animation301.interval,bind
+	animation301.pattern0,add,1301,0,0,0
+	animation302.interval,bind
+	animation302.pattern0,add,1302,0,0,0
+	animation303.interval,bind
+	animation303.pattern0,add,1303,0,0,0
+	
+	//dress
+	animation400.interval,bind
+	animation400.pattern0,add,1400,0,0,0
+	animation401.interval,bind
+	animation401.pattern0,add,1401,0,0,0
+	animation402.interval,bind
+	animation402.pattern0,add,1402,0,0,0
+	animation403.interval,bind
+	animation403.pattern0,add,1403,0,0,0
+	animation404.interval,bind
+	animation404.pattern0,add,1404,0,0,0
+	animation405.interval,bind
+	animation405.pattern0,add,1405,0,0,0
+	animation406.interval,bind
+	animation406.pattern0,add,1406,0,0,0
+	animation407.interval,bind
+	animation407.pattern0,add,1407,0,0,0
+	animation408.interval,bind
+	animation408.pattern0,add,1408,0,0,0
+	animation409.interval,bind
+	animation409.pattern0,add,1409,0,0,0
+	animation410.interval,bind
+	animation410.pattern0,add,1410,0,0,0
+	animation411.interval,bind
+	animation411.pattern0,add,1411,0,0,0
+	animation412.interval,bind
+	animation412.pattern0,add,1412,0,0,0
+	animation413.interval,bind
+	animation413.pattern0,add,1413,0,0,0
+	animation414.interval,bind
+	animation414.pattern0,add,1414,0,0,0
+	animation415.interval,bind
+	animation415.pattern0,add,1415,0,0,0
+	animation416.interval,bind
+	animation416.pattern0,add,1416,0,0,0
+	animation417.interval,bind
+	animation417.pattern0,add,1417,0,0,0
+	animation418.interval,bind
+	animation418.pattern0,add,1418,0,0,0
+	animation419.interval,bind
+	animation419.pattern0,add,1419,0,0,0
+
+	//skirt_gradients
+	animation500.interval,bind
+	animation500.pattern0,add,2505,0,0,0
+	animation501.interval,bind
+	animation501.pattern0,add,2506,0,0,0
+	animation502.interval,bind
+	animation502.pattern0,add,2507,0,0,0
+	animation503.interval,bind
+	animation503.pattern0,add,2508,0,0,0
+	animation504.interval,bind
+	animation504.pattern0,add,2509,0,0,0
+	animation505.interval,bind
+	animation505.pattern0,add,2510,0,0,0
+	animation506.interval,bind
+	animation506.pattern0,add,2511,0,0,0
+	animation507.interval,bind
+	animation507.pattern0,add,2512,0,0,0
+	animation508.interval,bind
+	animation508.pattern0,add,2513,0,0,0
+	animation509.interval,bind
+	animation509.pattern0,add,2514,0,0,0
+	animation510.interval,bind
+	animation510.pattern0,add,2515,0,0,0
+	//skirt_patterns
+	animation587.interval,bind
+	animation587.pattern0,add,2500,0,0,0
+	animation588.interval,bind
+	animation588.pattern0,add,2501,0,0,0
+	animation589.interval,bind
+	animation589.pattern0,add,2502,0,0,0
+	animation590.interval,bind
+	animation590.pattern0,add,2503,0,0,0
+	animation591.interval,bind
+	animation591.pattern0,add,2504,0,0,0
+	animation592.interval,bind
+	animation592.pattern0,add,2516,0,0,0
+	animation593.interval,bind
+	animation593.pattern0,add,2517,0,0,0
+	animation594.interval,bind
+	animation594.pattern0,add,2518,0,0,0
+	animation595.interval,bind
+	animation595.pattern0,add,2519,0,0,0
+	animation596.interval,bind
+	animation596.pattern0,add,2520,0,0,0
+	animation597.interval,bind
+	animation597.pattern0,add,2521,0,0,0
+	animation598.interval,bind
+	animation598.pattern0,add,2522,0,0,0
+	animation599.interval,bind
+	animation599.pattern0,add,2523,0,0,0
+	
+	//shirt patterns
+	animation600.interval,bind
+	animation600.pattern0,add,2605,0,0,0
+	animation601.interval,bind
+	animation601.pattern0,add,2606,0,0,0
+	animation602.interval,bind
+	animation602.pattern0,add,2607,0,0,0
+	animation603.interval,bind
+	animation603.pattern0,add,2608,0,0,0
+	animation604.interval,bind
+	animation604.pattern0,add,2609,0,0,0
+	animation605.interval,bind
+	animation605.pattern0,add,2610,0,0,0
+	animation606.interval,bind
+	animation606.pattern0,add,2602,0,0,0
+	animation607.interval,bind
+	animation607.pattern0,add,2603,0,0,0
+	animation608.interval,bind
+	animation608.pattern0,add,2604,0,0,0
+	animation609.interval,bind
+	animation609.pattern0,add,2600,0,0,0
+	animation610.interval,bind
+	animation610.pattern0,add,2601,0,0,0
+	
+	//pins
+	animation700.interval,bind
+	animation700.pattern0,add,2700,0,0,0
+	animation701.interval,bind
+	animation701.pattern0,add,2701,0,0,0
+	animation702.interval,bind
+	animation702.pattern0,add,2702,0,0,0
+	animation703.interval,bind
+	animation703.pattern0,add,2703,0,0,0
+	animation704.interval,bind
+	animation704.pattern0,add,2704,0,0,0
+	animation705.interval,bind
+	animation705.pattern0,add,2705,0,0,0
+	animation706.interval,bind
+	animation706.pattern0,add,2706,0,0,0
+	animation707.interval,bind
+	animation707.pattern0,add,2707,0,0,0
+	animation708.interval,bind
+	animation708.pattern0,add,2708,0,0,0
+	animation709.interval,bind
+	animation709.pattern0,add,2709,0,0,0
+	animation710.interval,bind
+	animation710.pattern0,add,2710,0,0,0
+	animation711.interval,bind
+	animation711.pattern0,add,2711,0,0,0
+	animation712.interval,bind
+	animation712.pattern0,add,2712,0,0,0
+	animation713.interval,bind
+	animation713.pattern0,add,2713,0,0,0
+	animation714.interval,bind
+	animation714.pattern0,add,2714,0,0,0
+	animation715.interval,bind
+	animation715.pattern0,add,2715,0,0,0
+	animation716.interval,bind
+	animation716.pattern0,add,2716,0,0,0
+	
+	//seashell
+	animation800.interval,bind
+	animation800.pattern0,add,1500,0,0,0
+	animation801.interval,bind
+	animation801.pattern0,add,1501,0,0,0
+	animation802.interval,bind
+	animation802.pattern0,add,1502,0,0,0
+	animation803.interval,bind
+	animation803.pattern0,add,1503,0,0,0
+	
+	//back_hair
+	animation900.interval,bind
+	animation900.pattern0,add,1600,0,0,0
+	animation901.interval,bind
+	animation901.pattern0,add,1601,0,0,0
+	animation902.interval,bind
+	animation902.pattern0,add,1602,0,0,0
+	animation903.interval,bind
+	animation903.pattern0,add,1603,0,0,0
+	animation904.interval,bind
+	animation904.pattern0,add,1604,0,0,0
+	animation905.interval,bind
+	animation905.pattern0,add,1605,0,0,0
+	animation906.interval,bind
+	animation906.pattern0,add,1606,0,0,0
+	animation907.interval,bind
+	animation907.pattern0,add,1607,0,0,0
+	animation908.interval,bind
+	animation908.pattern0,add,1608,0,0,0
+	animation909.interval,bind
+	animation909.pattern0,add,1609,0,0,0
+	animation910.interval,bind
+	animation910.pattern0,add,1610,0,0,0
+	animation911.interval,bind
+	animation911.pattern0,add,1611,0,0,0
+	animation912.interval,bind
+	animation912.pattern0,add,1612,0,0,0
+	animation913.interval,bind
+	animation913.pattern0,add,1613,0,0,0
+	animation914.interval,bind
+	animation914.pattern0,add,1614,0,0,0
+	animation915.interval,bind
+	animation915.pattern0,add,1615,0,0,0
+	
+	//head
+	animation1000.interval,always
+	animation1000.pattern0,overlay,1700,1,0,0
+	
+	//mouth
+	animation1100.interval,always
+	animation1100.pattern0,overlay,2203,1,0,0
+	
+		
+		//talk
+		
+		// animation1199.interval,talk,6
+		// animation1199.pattern0,alternativestart,(1198,1197,1196)
+		// animation1199.pattern1,overlay,-1,0,0,0
+		
+			// animation1198.interval,never
+		// animation1198.pattern0,stop,1100
+		// animation1198.pattern1,overlay,2200,0,0
+		//animation1198.pattern2,overlay,-1,60,0,0
+			// animation1197.interval,never
+		// animation1197.pattern0,stop,1100
+		// animation1197.pattern1,overlay,2208,0,0,0
+		//animation1197.pattern2,overlay,-1,60,0,0
+			// animation1196.interval,never
+		// animation1196.pattern0,stop,1100
+		// animation1196.pattern1,overlay,2211,0,0,0
+		//animation1196.pattern2,overlay,-1,60,0,0
+		
+	
+		animation1101.interval,never
+		animation1101.pattern0,stop,1100
+		animation1101.pattern1,overlay,2201,0,0,0
+		animation1102.interval,never
+		animation1102.pattern0,stop,1100
+		animation1102.pattern1,overlay,2202,0,0,0
+		animation1103.interval,never
+		animation1103.pattern0,stop,1100
+		animation1103.pattern1,overlay,2200,0,0,0
+		animation1104.interval,never
+		animation1104.pattern0,stop,1100
+		animation1104.pattern1,overlay,2204,0,0,0
+		animation1105.interval,never
+		animation1105.pattern0,stop,1100
+		animation1105.pattern1,overlay,2205,0,0,0
+		animation1106.interval,never
+		animation1106.pattern0,stop,1100
+		animation1106.pattern1,overlay,2206,0,0,0
+		animation1107.interval,never
+		animation1107.pattern0,stop,1100
+		animation1107.pattern1,overlay,2207,0,0,0
+		animation1108.interval,never
+		animation1108.pattern0,stop,1100
+		animation1108.pattern1,overlay,2208,0,0,0
+		animation1109.interval,never
+		animation1109.pattern0,stop,1100
+		animation1109.pattern1,overlay,2209,0,0,0
+		animation1110.interval,never
+		animation1110.pattern0,stop,1100
+		animation1110.pattern1,overlay,2210,0,0,0
+		animation1111.interval,never
+		animation1111.pattern0,stop,1100
+		animation1111.pattern1,overlay,2211,0,0,0
+		
+	//front_hair
+	animation1400.interval,bind
+	animation1400.pattern0,add,2000,0,0,0
+	animation1401.interval,bind
+	animation1401.pattern0,add,2001,0,0,0
+	animation1402.interval,bind
+	animation1402.pattern0,add,2002,0,0,0
+	animation1403.interval,bind
+	animation1403.pattern0,add,2003,0,0,0
+	animation1404.interval,bind
+	animation1404.pattern0,add,2004,0,0,0
+	animation1405.interval,bind
+	animation1405.pattern0,add,2005,0,0,0
+	animation1406.interval,bind
+	animation1406.pattern0,add,2006,0,0,0
+	animation1407.interval,bind
+	animation1407.pattern0,add,2007,0,0,0
+	animation1408.interval,bind
+	animation1408.pattern0,add,2008,0,0,0
+	
+	//eyebrows
+	animation1500.interval,always
+	animation1500.pattern0,overlay,2100,1,0,0
+	
+		animation1501.interval,never
+		animation1501.pattern0,stop,1500
+		animation1501.pattern1,overlay,2101,0,0,0
+		animation1502.interval,never
+		animation1502.pattern0,stop,1500
+		animation1502.pattern1,overlay,2102,0,0,0
+		animation1503.interval,never
+		animation1503.pattern0,stop,1500
+		animation1503.pattern1,overlay,2103,0,0,0
+		animation1504.interval,never
+		animation1504.pattern0,stop,1500
+		animation1504.pattern1,overlay,2104,0,0,0
+	
+	//snail stalks
+	animation1600.interval,always
+	animation1600.pattern0,overlay,2400,1,0,0
+	
+		//random twitch
+	animation1699.interval,random,50
+	animation1699.pattern0,alternativestart,(1698,1697)
+	
+			animation1698.interval,never
+		animation1698.pattern0,stop,1600
+		animation1698.pattern1,overlay,2402,0,0
+		animation1698.pattern2,overlay,2400,50,0
+		animation1698.pattern3,overlay,2401,50,0
+		animation1698.pattern4,overlay,-1,100,0,0
+		animation1698.pattern5,start,1600
+			animation1697.interval,never
+		animation1697.pattern0,stop,1600
+		animation1697.pattern1,overlay,2403,0,0
+		animation1697.pattern2,overlay,2400,50,0
+		animation1697.pattern3,overlay,2404,50,0
+		animation1697.pattern4,overlay,-1,100,0,0
+		animation1697.pattern5,start,1600
+		//excited twitch
+			animation1696.interval,never
+		animation1696.pattern0,stop,1600
+		animation1696.pattern1,stop,1699
+		animation1696.pattern2,overlay,2401,0,0
+		animation1696.pattern3,overlay,2400,50,0
+		animation1696.pattern4,overlay,2402,25,0
+		animation1696.pattern5,overlay,-1,50,0,0
+		animation1696.pattern6,start,1600
+		//animation1696.pattern7,start,1699
+		
+		animation1601.interval,never
+		animation1601.pattern0,stop,1600
+		animation1601.pattern1,stop,1699
+		animation1601.pattern2,overlay,2401,0,0,0
+		animation1602.interval,never
+		animation1602.pattern0,stop,1600
+		animation1602.pattern1,stop,1699
+		animation1602.pattern2,overlay,2402,0,0,0
+		animation1603.interval,never
+		animation1603.pattern0,stop,1600
+		animation1603.pattern1,stop,1699
+		animation1603.pattern2,overlay,2403,0,0,0
+		animation1604.interval,never
+		animation1604.pattern0,stop,1600
+		animation1604.pattern1,stop,1699
+		animation1604.pattern2,overlay,2404,0,0,0
+		animation1605.interval,never
+		animation1605.pattern0,stop,1600
+		animation1605.pattern1,stop,1699
+		animation1605.pattern2,overlay,2405,0,0,0
+	
+	//emoji
+		animation1700.interval,never
+		animation1700.pattern0,overlay,2800,0,0,0
+		animation1701.interval,never
+		animation1701.pattern0,overlay,2801,0,0,0
+		animation1702.interval,never
+		animation1702.pattern0,overlay,2802,0,0,0
+		animation1703.interval,never
+		animation1703.pattern0,overlay,2803,0,0,0
+		animation1704.interval,never
+		animation1704.pattern0,overlay,2804,0,0,0
+	
+	//front arm
+	animation1800.interval,always
+	animation1800.pattern0,overlay,2300,1,0,0
+	
+		animation1801.interval,never
+		animation1801.pattern0,stop,1800
+		animation1801.pattern1,overlay,2301,0,0,0
+		animation1802.interval,never
+		animation1802.pattern0,stop,1800
+		animation1802.pattern1,overlay,2302,0,0,0
+		animation1803.interval,never
+		animation1803.pattern0,stop,1800
+		animation1803.pattern1,overlay,2303,0,0,0
+		animation1804.interval,never
+		animation1804.pattern0,stop,1800
+		animation1804.pattern1,overlay,2304,0,0,0
+		animation1805.interval,never
+		animation1805.pattern0,stop,1800
+		animation1805.pattern1,overlay,2305,0,0,0
+		animation1806.interval,never
+		animation1806.pattern0,stop,1800
+		animation1806.pattern1,overlay,2306,0,0,0
+		animation1807.interval,never
+		animation1807.pattern0,stop,1800
+		animation1807.pattern1,overlay,2307,0,0,0
+		animation1808.interval,never
+		animation1808.pattern0,stop,1800
+		animation1808.pattern1,overlay,2308,0,0,0
+		animation1809.interval,never
+		animation1809.pattern0,stop,1800
+		animation1809.pattern1,overlay,2309,0,0,0
+		animation1810.interval,never
+		animation1810.pattern1,overlay,2307,0,0,0
+		animation1810.pattern2,overlay,2309,100,0,0
+		animation1810.pattern3,overlay,2307,200,0,0
+}
+
+surface.append0-14,!10
+{
+	//collisions
+	animation800.collisionex0,necklace,polygon,137,177,147,178,145,182,150,190,133,190,139,181
+	animation801.collisionex0,necklace,polygon,175,218,185,214,186,219,193,225,182,234,179,222
+	animation802.collisionex0,necklace,polygon,147,142,159,142,156,146,161,152,145,156,149,146
+	
+	collisionex3,shell,polygon,219,192,199,151,209,96,307,103,308,271,220,266,222,199
+	
+	collisionex4,face,polygon,130,72,152,65,196,68,196,107,182,125,125,120
+}
+surface.append20-23
+{
+	//collisions
+	//collisionex3,shell,ellipse,20,200,300,430
+}
+
+surface99 //rock overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2900.png,0,0
+}
+surface88 //black, obelisk-shaped rock overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2901.png,0,0
+}
+surface87 //black-and-gray speckled rock overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2902.png,0,0
+}
+surface86 //mossy rock overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2903.png,0,0
+}
+surface85 //striped rock overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2904.png,0,0
+}
+surface84 //handful of marbles overlay arm
+{
+	element0,overlay,surface1102.png,0,0
+	element1,overlay,surface2905.png,0,0
+}
+
+//default eyes
+surface98 //@ user
+{
+	element0,overlay,surface1800.png,0,0
+	element1,overlay,surface1900.png,0,0
+}
+surface97 //right
+{
+	element0,overlay,surface1800.png,0,0
+	element1,overlay,surface1901.png,0,0
+}
+surface96 //left
+{
+	element0,overlay,surface1800.png,0,0
+	element1,overlay,surface1902.png,0,0
+}
+surface95 //up
+{
+	element0,overlay,surface1800.png,0,0
+	element1,overlay,surface1903.png,0,0
+}
+surface94 //down
+{
+	element0,overlay,surface1800.png,0,0
+	element1,overlay,surface1904.png,0,0
+}
+//midblink
+surface93 //@user
+{
+	element0,overlay,surface1805.png,0,0
+	element1,overlay,surface1905.png,0,0
+}
+surface92 //right
+{
+	element0,overlay,surface1805.png,0,0
+	element1,overlay,surface1906.png,0,0
+}
+surface91 //left
+{
+	element0,overlay,surface1805.png,0,0
+	element1,overlay,surface1907.png,0,0
+}
+surface90 //up
+{
+	element0,overlay,surface1805.png,0,0
+	element1,overlayfast,surface1900.png,0,0
+}
+surface89 //down
+{
+	element0,overlay,surface1805.png,0,0
+	element1,overlay,surface1904.png,0,0
+}
+

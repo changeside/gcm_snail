@@ -1,0 +1,229 @@
+//------------------------------------------------------------------------------
+// Important Notes
+//------------------------------------------------------------------------------
+
+OnTranslate modified (
+	Added EVAL function to process %() tags in yaya
+)
+shiori array functions etc: JOIN, REVERSE, UNIQUE, SPLITEX, MAX, MIN, AVERAGE
+\c[line,number]; to clear balloon without reloading
+\C ;balloon exact same as last
+\* ;no timeout for choices (only in the same script)
+\_?;display script without executing tags
+sec since last talk; GETSECCOUNT()-SHIORI3FW.LastTalkTime
+parralel ARRAY; outputs all things in array in equal chance
+
+//------------------------------------------------------------------------------
+// To-Do
+//------------------------------------------------------------------------------
+add new balloon to .nar
+ensure only snail balloon gets used auto (in descript file)
+make new nars
+
+//------------------------------------------------------------------------------
+// Variables
+//
+//				:All global variables + explanation.
+//------------------------------------------------------------------------------
+
+|| SHIORI; do not need to be initialized (except marked (!)) |
+(!)aitalkinterval		:default,270;rest,0,45,90,400
+ChainTalk
+SHIORI3FW.CanTalk
+displaybpp
+displaywidth
+displayheight
+
+|| Auto initialized |
+dresslogAr (Array)	:saves state of dress up items
+
+|| ERASEVAR("varname"); global temp vars; START AT 1 UNLESS OTHERWISE SPECIFIED |
+togglefirst
+
+
+|| General Variables |
+updatecheck (0/1)
+
+categoryAr (Array)	:saves dress up categories (OnClothes_Categories; on boot & first boot)
+rockUnlock (0/1)
+shellUnlock (0/1)
+fishUnlock (0/1)
+plantUnlock (0/1)
+flowerUnlock (0/1)
+fruitUnlock (0/1)
+
+//------------------------------------------------------------------------------
+// Functions
+//
+//				:Repetetively used functions.
+//------------------------------------------------------------------------------
+Random envelopes:color, song, think, rock
+
+Text shortcuts: def, b, it, st
+Format: Capitalize
+
+Surfaces: sigh, thoughtful, flap
+
+Checks: DIALOGUE("function","unlockvar"); returns 0 or 1 if there's dialogue && func is unlocked; _argv[1] optional
+
+//------------------------------------------------------------------------------
+// Files
+//
+//				:File explanation/summary.
+//------------------------------------------------------------------------------
+snail_boot.dic
+	|Version and update URL
+	|Variable resets
+	|Firstboot
+	|Boot and close dialogue; initialize check for update data
+	|Formatting envelopes (surfaces/text)
+snail_menu.dic
+	|Double click menu
+	|Change talk rate
+	|Self care/Self care only certain topic init
+	|Fact/Fact only certain topic init
+	|Reset
+	|Customization
+snail_string.dic
+	|Function to check if there's dialogue in an unlock function
+	|Input cancel
+	|Double click
+	|Key press
+	|Surface restore and ghost change/reload
+	|Install complete
+	|Text modification (auto pauses, etc.)
+	|Update functions with check
+	|misc ssp/shiori functions
+	|List functions
+snail_talk.dic
+	|Aitalk
+	|Facts
+	|Self care
+	|Unlock
+	|Dialogue for unlocked things
+	|Envelopes for randomized dialogue
+
+//------------------------------------------------------------------------------
+// Surfaces
+//
+//				:Explanation of surfaces and intervals as guide
+//------------------------------------------------------------------------------
+
+|| SURFACE FILE GUIDE |
+surfaces labelled with * are dress-up surfaces
+
+surface0 : blank
+surface10 : blank	
+surface1000* : snail shell		- 0
+surface1100 : back arm			- 100
+surface1200* : legs				- 200
+surface1300* : torso			- 300
+surface1400* : dress			- 400
+surface2505+* : skirt gradients	- 500
+surface2500* : skirt patterns	- 599-
+surface2600* : shirt patterns	- 600
+surface2700* : pins				- 700
+surface1500* : the seashell		- 800
+surface1600* : back hair		- 900
+surface1700 : head				- 1000
+surface2200 : mouth				- 1100
+surface1800 : eyes				- 1200
+surface1900 : pupils			- 1300
+surface2000* : front hair		- 1400
+surface2100 : eyebrows			- 1500
+surface2400 : snail stalks		- 1600
+surface2800 : emoji				- 1700
+surface2300 : front arm			- 1800
+
+
+|| EYE GUIDE |
+s0	normal eyes; @user
+s1	normal eyes; right
+s2	normal eyes; left
+s3	normal eyes; up
+s4	normal eyes; down
+s5	^u^
+s6	closed
+s7	owo
+s8	> <
+s9	midblink eyes; @user
+s11	midblink eyes; right
+s12	midblink eyes; left
+s13	midblink eyes; up
+s14	midblink eyes; down
+	other surfaces
+	s20	in shell no eyes
+	s21	in shell angry/squint eyes
+	s22	in shell worried
+	s23	in shell scared
+	
+|| BACK ARM GUIDE |
+100 normal
+101 behind back
+102 hold out
+103 hold one finger up
+104 excited arm out
+105 back/pocket
+106 take rock out
+107 raised fist
+108 arm out + raised slightly
+109 arm flap (surface 1104 + 1107)
+110 take black, obelisk-shaped rock out
+111 take black-and-grey speckled rock out
+112 take mossy rock out
+113 take striped rock out
+114 take a handful of marbles out
+
+|| MOUTH GUIDE |
+1100 smile		new 2203.png
+1101 3 mouth	2201.png
+1102 pouty	2202.png
+1103 grin	2200.png 
+1104 ^ mouth	2204.png
+1105 ~ mouth	2205.png
+1106 frown	2206.png
+1107 sigh/whistle/o mouth	2207.png
+1108 open small mouth (talk)	2208.png
+1109 small sad mouth	2209.png
+1110 grin 2 electric boogaloo	2210.png
+1111 open mouth (talk)	2211.png
+
+|| EYEBROW GUIDE |
+1500 default
+1501 ÒuÓ
+1502 òuO/one frown, one up
+1503 frown up
+1504 thicc frown
+
+|| ANTENNAE GUIDE |
+1600 default	2400.png
+1601 high (excited/scared/happy/etc)	2401.png
+1602 low (sad/focused/angry/etc)	2402.png
+1603 one low, one high (idk.. confused?)	2403.png
+1604 one high, one low	2404.png
+1605 straight stalks pointing up (scared/attention?) 2405.png
+1696 excited twitch
+(1699 random twitch)
+animation sequences:
+	0 - 2 - 0 - 1 - 0
+	0 - 3 - 0 - 4 - 0
+
+|| EMOJI GUIDE |
+1700 3 lines callout
+1701 angry
+1702 confused question mark
+1703 music note
+1704 exclamation point
+
+|| FRONT ARM GUIDE |
+1800 default
+1801 hold over stomach
+1802 hold out
+1803 hold one finger up
+1804 point at own face (one finger)
+1805 hold towards face, all fingers up
+1806 hold phone
+1807 excited arm out
+1808 raised fist
+1809 arm out + raised slightly
+1810 arm flap (surface 2309 + 2307)

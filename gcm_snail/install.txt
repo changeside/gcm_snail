@@ -1,0 +1,7 @@
+﻿charset,UTF-8
+type,ghost
+name,Snail
+directory,gcm_snail
+
+balloon.directory,gcm_snail_b
+//balloon.source.directory,gcm_snail_b

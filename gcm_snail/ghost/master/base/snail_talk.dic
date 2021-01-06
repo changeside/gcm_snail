@@ -1,0 +1,564 @@
+//------------------------------------------------------------------------------
+// File		:snail_talk.dic
+//
+//			:Aitalk
+//
+// Var		:rockUnlock
+//			 shellUnlock
+//			 fishUnlock
+//			 plantUnlock
+//			 flowerUnlock 
+//			 fruitUnlock
+//------------------------------------------------------------------------------
+
+
+AiTalk : nonoverlap
+{
+	//no unlock
+		OnSelfcare
+		OnFact
+		if !rockUnlock; OnRock_Unlock
+	"\0\s[4]\i[1806]\1(She's looking at pictures of rocks.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of snails.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of seashells.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of gardens.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of beaches.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of flowers.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of fruit.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of vegetables.)\e"
+	"\0\s[4]\i[1806]\1(She's looking at pictures of fish.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a rock.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a snail.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a seashell.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a plant.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a beach.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a flower.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing fruit.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing vegetables.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing a fish.)\e"
+	"\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing…\w5\w5 me?)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) rock.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) snail.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) seashell.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) plant.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) flower.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) fruit.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) vegetable.)\e"
+	"\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring a %(color) fish.)\e"
+	"\0\s[6]\i[105]\i[1703]... %(song)...\1(... Sounds like she's humming.)\e"
+	"\0\s[5]\i[105]\i[1111]\i[1703]%(song)~\1(She's singing to herself.)\e"
+	"\0\s[5]\i[105]\i[1111]\i[1703]%(song) %(song)~\1(The song isn't familiar…)\e"
+	"\0\s[1]\i[101]\i[1107]\i[1601]\1(She's looking around.)\e"
+	"\0\s[2]\i[101]\i[1107]\i[1601]\1(She's looking around.)\e"
+	"\0\s[3]\i[101]\i[1107]\i[1601]\1(She's looking around.)\e"
+	"\0\s[11]\i[101]\i[1105]\i[1696]\i[1702]\1(Did she notice something…?)\e"
+	"\0\s[12]\i[101]\i[1105]\i[1696]\i[1702]\1(Did she notice something…?)\e"
+	"\0\s[13]\i[101]\i[1105]\i[1696]\i[1702]\1(Did she notice something…?)\e"
+	"\0\s[0]\i[1101]\i[1601]\1(There's a clacking in her pockets whenever she moves…)\e"
+	"\0\s[0]\i[1101]\i[1601]\1(She doesn't seem to mind being here.)\e"
+	"\0\s[0]\i[1101]\i[1601]\1(It doesn't seem like she's in a hurry to get anywhere.)\e"
+	"\0\s[0]\i[1101]\i[1601]\1(It's hard to tell what she's thinking…)\e"
+
+	//rock
+	if rockUnlock; "\0\s[11]\i[105]So, do you think that rock of yours could use more company?\w8 Because I have another nice one…\w8\0\s[0]\i[1103]\i[106] Right here!\e"
+	if rockUnlock; "\0\s[0]\i[1108]\i[1601]Oh! I just remembered something!\0\s[11]\i[105] I miiight have gotten you a little gift.\w8\0\s[0]\i[1103]\i[106] It's a rock!\w8\i[1601]\i[1700] I hope you like it!\e"
+	if rockUnlock; "\0\s[5]\i[1101]\i[1601]\i[1703]%(song)~ Rock song~\e"
+	if rockUnlock; "\0\s[8]\i[104]\i[1111]\i[1504]\i[1696]\i[1703]\i[1805]%(song) %(song)~! Rock song~!\1(... She's really into it.)\e"
+	if rockUnlock; "\0\s[4]\i[1806]\1(She's looking at pictures of %(rock).)\e"
+	if rockUnlock; "\0\s[4]\i[1806]\1(She's watching a video about %(rock).)\e"
+	if rockUnlock; "\0\s[4]\i[1806]\1(She's reading about %(rock).)\e"
+	if rockUnlock; "\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's drawing %(rock).)\e"
+	if rockUnlock; "\0\s[4]\i[103]\i[1102]\i[1500]\i[1601]\i[1806]\1(She's coloring %(rock).)\e"
+	if rockUnlock; "\0\s[4]\i[103]\i[1104]\i[1501]\i[1602]\i[1806]\1(She's searching '%(color) %(rock)'...)\e"
+	//shell
+	//fish
+	//plant
+	//flower
+	//fruit
+}
+
+
+//------------------------------------------------------------------------------
+// Fact dialogues
+//------------------------------------------------------------------------------
+OnFact : nonoverlap
+{
+	if DIALOGUE("OnFact_main"); OnFact_main
+	if DIALOGUE("OnFact_rock","rockUnlock"); OnFact_rock
+	if DIALOGUE("OnFact_shell","shellUnlock"); OnFact_shell
+	if DIALOGUE("OnFact_fish","fishUnlock"); OnFact_fish
+	if DIALOGUE("OnFact_plant","plantUnlock"); OnFact_plant
+	if DIALOGUE("OnFact_flower","flowerUnlock"); OnFact_flower
+	if DIALOGUE("OnFact_fruit","fruitUnlock"); OnFact_fruit
+}
+OnFact_main : nonoverlap
+{
+
+}
+OnFact_rock : nonoverlap
+{
+	"\0\s[0]\i[1107]\i[1603]You'd think that rocks would be easy to identify if you study them like geologists do, but actually, a lot of them don't agree on how they should be classified!\e"
+	"\0\s[0]Just about every rock there is can be classified as igneous, metamorphic, or sedimentary…\w8\s[0]\i[1101]\i[1601] But the sedimentary ones are my favorites.\e"
+	"\0%(think)\s[0]\i[103]\i[1107]\i[1602]\i[1805] Igneous rocks are made of magma! And lava!\w5\s[0]\i[103]\i[1103]\i[1696]\i[1805] And they make up most of the oceanic crust!\s[0]\i[103]\i[1101]\i[1601]\i[1805] Very cool.\e"
+	"\0%(think)\s[0] Most igneous rocks are intrusive rocks…\w5\w5\s[0]\i[1102]\i[1504]\i[1801] Which sounds bad…\s[0]\i[1107]\i[1603] But, it just means they form over a looong time deep down in the planet's crust!\e"
+	"\0%(think)\s[0]\i[1103]\i[1696] Extrusive igneous rocks happen when a volcano %(it)erupts%(itoff)!\n\s[0]\i[1102]\i[1504]\i[1801]…\w5\w5\nUhm…\w5\w5 Also when they sort of… leak?\s[0]\i[1101]\i[1601] Whenever magma ends up on the planet's surface instead of in the crust, really.\e"
+	"\0\s[0]\i[1102]\i[1504]Texture is a very important part of identifying igneous rocks…\w8\s[0]\i[1105] Though, I guess it matters for a lot of other rocks, too, doesn't it?\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]Metamorphic rocks are rocks that used to be other rocks…\w5\w5\s[4]\i[1106]\i[1502] Sometimes, they used to be rocks that used to be %(it)other%(itoff) rocks…\w5\w5\s[8]\i[1106]\i[1501] Or, rocks that used to be rocks that used to be…\e"
+	"\0%(think)\s[0] Recrystallization is a metamorphic process that changes the particle size of a rock, like making small crystals large, or compacting big particles together.\e"
+	"\0\s[0]\i[1101]\i[1601]The main ingredients for making a good metamorphic rock are heat and pressure…\w8 Oh, and other rocks, of course!\e"
+	"\0\s[0]\i[1107]\i[1603]A lot of the planet's crust is made of metamorphic rocks, but most of them live under the surface.\e"
+	"\0\s[5]\i[1101]\i[1601]Sedimentary rocks are made up of itty bitty bits of worn down minerals and organic matter that have been solidified into…\w5\w5\0\s[0]\i[1101]\i[1601] Well, rocks!\e"
+	"%(think)\0\s[0]\i[103]\i[1107]\i[1602] Even though most of the planet's surface is covered by sedimentary rocks, the %(it)crust%(itoff) is made of way, way more igneous and metamorphic rocks.\e"
+	"\0\s[0]\i[104]\i[1110]\i[1696]\i[1807]Did you know, most fossils are found encased in sedimentary rock?\s[0]\i[104]\i[1103]\i[1696]\i[1807] Fossils! Like bones and shells and plants and things!\e"
+	"\0\s[0]\i[1101]\i[1601]Sedimentary rocks form in layers that can be used to figure out what sorts of materials were around a place at different times.\e"
+	"\0\s[0]\i[1101]\i[1601]The way that materials get deposited have a huge effect on how sedimentary rocks form.\s[0]\i[1107]\i[1603] For example, when water gets deep enough, the sediments needed to make limestone will have all dissolved so there's none left to settle at the bottom!\e"
+	"\0\s[0]\i[1101]\i[1601]Andesite is a type of extrusive igneous rock.\s[0]\i[1107]\i[1603] You can usually find them in island arcs, where there have been volcanoes before.\e"
+	"\0%(think)\s[6]\i[1101]\i[1501] Most of the volcanic rock on the entire planet…\w5\w5 is basalt!\s[0]\i[1101]\i[1601] Basalt lava flows are really interesting to look at. I'd love to go see one in person someday.\e"
+	"%(think)\0\s[0]\i[1107]\i[1603] Shoshonite…\0\s[0] is a type of igneous rock with a very fun name.\e"
+	"\0\s[5]\i[1101]\i[1601]Carbonatite is a neat type of rock because it looks like marble, but actually over half of it is made up of carbonate minerals.\e"
+	"%(think)\0\s[0] Corsite has lumps in it that look like concentric circles when you cut through them. It makes really neat ornaments.\e"
+	"\0\s[0]\i[1105]Gabbro is a lot like basalt…\w5\w5\0\s[0]\i[1101]\i[1601] Except, some varieties of it get used for all sorts of house construction, from stone sidings to kitchen counters.\0\s[0]\i[1107]\i[1603] They call it black granite when it's used that way.\e"
+	"\0\s[0]Granite is…\w8 well, granite!\0\s[5]\i[1101]\i[1601] It's been used for all sorts of things since antiquity, and a lot of it was formed during the Precambrian age.\e"
+	"%(think)\0\s[0]\i[1107]\i[1603] There's a really neat type of rock called hyaloclastite that forms when a volcano erupts right through a sheet of ice…\w8\0\s[0]\i[1103]\i[1696] Or through an entire glacier!\e"
+	"%(think)\0\s[0]\i[1101]\i[1601] Ignimbrite is an igneous rock made out of volcanic ash. Imagine that! Ash instead of lava!\e"
+	"%(think)\0\s[0]\i[1107]\i[1601] Oh, this one's really fun! Kimberlite forms in vertical intrusions that look like %(it)carrots%(itoff)!\e"
+	"\0\s[0]\i[1101]\i[1601]If you can manage to get a moon rock, there's a good chance it could be made of norite. Space rocks! How cool!\w5\w5\n\s[0]\i[1105]Though, if you really think about it, all rocks are space rocks…\e"
+	"%(think)\0\s[0]\i[1109]\i[1601] Obsidian is a volcanic glass that can be made %(it)so%(itoff) sharp that it's even sharper than a scalpel! It can even be polished into a pretty good mirror, if you like mirrors better than knives.\e"
+	"\0\s[0]\i[1101]\i[1601]Phonolite will ring when you hit it. One stone can be struck in different places to make different notes.\e"
+	"%(think)\0\s[5]\i[1101]\i[1601] Pumice forms when lava erupts with so much pressure and cools so quickly that all of the bubbles inside it get frozen in place!\e"
+	"\0\s[0]Scoria is like pumice, except it's denser and the vesicles made by the bubbles are larger.\e"
+	"%(think)\0\s[0]\i[1107]\i[1603] Chalk is chalk…\w8\0\s[0] and a rock! Chalk, the kind you write or draw with, can be made of a few different materials… but traditionally, it was made with %(it)chalk%(itoff). Chalk the rock, that is!\e"
+	"%(think)\0\s[0]\i[1101]\i[1601] Chalk is a form of limestone that's formed in marine conditions. It's made from the shells of ocean dwelling microorganisms, and requires stable conditions over millions of years.\e"
+	"\0\s[0]\i[103]\i[1107]\i[1602]Chert is a type of sedimentary rock that's been especially good at preserving fossils from the earliest lifeforms on the planet! That's because it's highly resistant to weathering, chemical alterations, and recrystallization.\e"
+	"\0\s[0]\i[1107]\i[1603]Flint is a variety of chert that can form in nodules within other sedimentary rocks, like chalk and limestone.\e"
+	"%(think)\s[0]\i[1105] Okay, so. Flint, chert, and obsidian were all very important in the Stone Age.\0\s[0]\i[1101]\i[1601] All three were crafted into early tools and weapons, but chert and flint were also used in fire making.\0\s[5]\i[1101]\i[1601] Of the three, flint was easily the most important!\e"
+	"\s[0]\i[1105]Mudrocks are the most widespread type of sedimentary rock and have been used for pottery and mudbricks since\w8, well, the beginning of pottery and bricks. Weirdly, though, they're one of the least understood sedimentary rocks. I wonder how that happened?\e"
+	"\0\s[0]\i[1101]\i[1601]Claystone is a mudrock that is at least half composed of clay. Clay in claystone, easy!\e"
+	"\0\s[0]Siltstone is a gritty rock that's made primarily of silt sized sediment.\e"
+	"\0\s[0]\i[1107]\i[1603]Most mudstones you can find are shale.\0\s[0]\i[1101]\i[1601] You can tell it's shale by the way it will split and flake in well defined layers.\e"
+	"%(think)\0\s[0]\i[1103]\i[1696] Slate is a metamorphic rock that used to be shale!\0\s[0]\i[1101]\i[1601] Slate is water resistant, fireproof, %(it)and%(itoff) a pretty good electrical insulator. That makes it useful for a lot of different things.\e"
+	"%(think)\0\s[0]\i[1107]\i[1603] Conglomerates are rocks made out of gravel that's been cemented together.\e"
+	"\0\s[5]\i[1101]\i[1601]Coquinas are rocks composed of fragments of shells! And a few other things. The fragments come from mollusks, corals, trilobites, and other invertebrates.\e"
+	"%(think)\0\s[0]\i[1107]\i[1603] Greywek—\w5\w5 Greyrake—\w5\w5\0\s[0]\i[1102]\i[1501]\i[1801] %(it)Greywacke%(itoff) is a rock and it's grey.\e"
+	"\0\s[0]\i[1101]\i[1601]Itacolumite is a type of sandstone with a yellow tone.\0\s[0]\i[103]\i[1101]\i[1602] What's neat about it is, when you cut it thin enough, it's actually pretty flexible! It'll even bend under its own weight!\e"
+	"\0\s[0]Laterite is both a type of rock and a type of soil…\w5\w5\0\s[0]\i[1107]\i[1603] Wait…\w5\w5\s[0]\i[1105] Does that mean this isn't really a rock fact?\e"
+	"%(think)\0\s[0]\i[1109]\i[1696] Limestone! So many things come from limestone! Caves are limestone, concrete is limestone, buildings are limestone… Or, some buildings, anyway.\0\s[5]\i[1101]\i[1601]\i[1700] It has tons of uses!\e"
+	"\0\s[0]\i[1101]\i[1601]Limestone is made of skeletal fragments, specifically from marine organisms. It's a sedimentary rock, and a common one, too!\e"
+	"%(think)\0\s[0]\i[1101]\i[1601] Oolites are stones made of ooids, which look like eggs! Ooids form when a piece of sediment gets coated in layers and layers of minerals, then oolites are made when a bunch of ooids get cemented together.\e"
+	"\0\s[0]\i[1107]\i[1603]Phosphorite is a sedimentary rock that's used in agricultural fertilizers.\0\s[0] If gardens like it, then I like it, too.\e"
+	"\0\s[0]Sandstone is a kind of stone made of sand. It's particularly well known for being easy to carve.\e"
+	"%(think)\0\s[0]\i[1101]\i[1601] Travertine is a special kind of limestone that forms near hot springs.\e"
+	"\0\s[0]\i[1107]\i[1603]Blueschist is formed from putting basalt under very high pressures.\0\s[0]\i[1101]\i[1601] It's known for its blue color!\e"
+	"\0\s[0]\i[1101]\i[1601]Eclogite is an extremely dense rock due to the extreme pressures used to create it. It resides deep down in the lowest parts of the planet's crust and is especially rare on the surface.\e"
+	"\0\s[0]Gneiss is a type of metamorphic rock whose component minerals form into light and dark bands of color.\e"
+	"%(think)\0\s[5]\i[1101]\i[1601] Greenschist is known for coming in a wide variety of greens, but it can also be completely black!\e"
+	"\0\s[0]\i[1101]\i[1601]Hornfels is an especially hard group of metamorphic rock that, despite being banded, tends to break into cubes rather than sheets. They can be used as whetstones and, like phonolite, rings like a bell when struck.\e"
+	"\0\s[0]\i[1103]\i[1696]When limestone is metamorphosed, it becomes marble!\0\s[5]\i[1101]\i[1601] Marble sculptures are amazing, aren't they?\e"
+	"\0\s[0]Migmatite…\w5\w5\s[1]\i[1101]\i[1503]\i[1601] sort of looks like it has snakes running through it…\w5\w5[>n>] Look it up if you don't believe me!\e"
+	"\0\s[0]\i[1101]\i[1601]Phyllite is what's made when slate is metamorphosed again. It looks like it's been all crinkled.\e"
+	"%(think)\0\s[0]\i[1103]\i[1696] When a very pure sandstone made of quartz gets heated and compressed, it turns into the metamorphic quartzite.\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]Serpentinite is a wet, greasy rock that gets wet and greasy by absorbing a bunch of water.\e"
+	"\0\s[0]\i[1101]\i[1601]Soapstone… feels like soap!\w8\0\s[0]\i[1102]\i[1504]\i[1801] Or, the soft ones do, anyway…\w8\0\s[0]\i[1101]\i[1601] It's heat-resistant and easy to carve.\e"
+}
+OnFact_shell : nonoverlap
+{
+	
+}
+OnFact_fish : nonoverlap
+{
+	
+}
+OnFact_plant : nonoverlap
+{
+	
+}
+OnFact_flower : nonoverlap
+{
+	
+}
+OnFact_fruit : nonoverlap
+{
+	
+}
+
+//------------------------------------------------------------------------------
+// Self care dialogues
+//------------------------------------------------------------------------------
+OnSelfcare : nonoverlap
+{
+	if DIALOGUE("OnSelfcare_main"); OnSelfcare_main
+	if DIALOGUE("OnSelfcare_rock","rockUnlock"); OnSelfcare_rock
+	if DIALOGUE("OnSelfcare_shell","shellUnlock"); OnSelfcare_shell
+	if DIALOGUE("OnSelfcare_fish","fishUnlock"); OnSelfcare_fish
+	if DIALOGUE("OnSelfcare_plant","plantUnlock"); OnSelfcare_plant
+	if DIALOGUE("OnSelfcare_flower","flowerUnlock"); OnSelfcare_flower
+	if DIALOGUE("OnSelfcare_fruit","fruitUnlock"); OnSelfcare_fruit
+}
+OnSelfcare_main : nonoverlap
+{
+	"\0%(thoughtful)Make sure you're getting enough fresh air.\w5\s[5] Holes in the ceiling are great for ventilation!\e"
+	"\0\s[0]\i[1106]\i[1501]Comfort is important, and moss is the %(it)most%(itoff) comfortable to lay on. Try to keep plenty of it around.\e"
+	"\0\s[0]\i[1106]\i[1503]If you're feeling tired a lot, you should try keeping a spray bottle around. It's important not to dry out, and a good spray works wonders.\e"
+	"\0\s[0]\i[103]Everyone gets scared sometimes, but you know what I think helps?\w8\n Hiding in your shell!\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]Some days are the kinda day where you want to find a place to chill with the lights out, and that's okay…\w8\0\s[5]\i[1101]\i[1601] But, the next time you have one of those days? Try finding a nice, soft patch of dirt to dig into!\0\s[0]\i[1101]\i[1601] Nothing calms the nerves quite like being surrounded by soil.\e"
+	"\0\s[6]\i[1101]I like to change my environment now and then. Tidy things up, bring in something new to brighten up the room.\w5\0\s[0]\i[1101]\i[1601] You wouldn't believe what a few new sticks can do.\w5\0\s[5]\i[1101]\i[1601] Oh! Or some nice terracotta pots!\e"
+	"\0\s[0]\i[1106]\i[1501]I always see people throwing away their egg shells. I don't get it. Getting enough calcium is important for the health of you and your shell.\w8\0\s[0]\i[1101]\i[1601] I like to top my salads with a good serving of dried egg shells. Adds a yummy crunch!\e"
+	"\0\s[1]\i[1102]\i[1602]Make sure to wear gloves whenever you have fruits or vegetables to wash. You never know what pesticides might be on them.\e"
+	"\0\s[0]\i[1101]\i[1601]A new look can help you feel better about yourself. I like to paint my shell sometimes!\w5\w5\n\0\s[0]\i[1102]\i[1504]\i[1801] Oh...\w5 but only in non-toxic washable paints.\e"
+	"\0\s[5]\i[1101]\i[1601]The louder you chew, the happier you'll be.\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]I don't know about you, but now and then, I have to get up a lot earlier than I'm used to for errands and things. But, you know what helps me wake up bright and early?\w8\0\s[0]\i[1101]\i[1601] A friend breathing on me. Warm breath in my face works really well, and doesn't make me sick like coffee does!\e"
+	"\0\s[1]I know it's tempting to taste things when you don't know what they are, but take it from me…\w5\w5\n\s[4]\i[101]\i[1109]\i[1801]\i[1504]You're better off asking someone what it is than trying to figure it out on your own.\e"
+	"\0\s[0]\i[1106]\i[1503]Never accept pennies when you get change.\e"
+	"\0%(thoughtful)Dishes are better than cups…\w8 But I like sports bottles the best.\e"
+	"\0\s[0]\i[1110]\i[1696]The best way to get somewhere you want to be is to just %(it)go%(itoff)! It doesn't matter what's in your way!\w5\w5\n\s[2]Even if what's in your way is, I don't know…\w5\w5 Someone's picnic…\w5\w5 and you step right on their dessert…\w5\w5\s[4]\i[101]\i[1109]\i[1801]\i[1504] Not that that's ever happened to me…\e"
+	"\0\s[0]\i[1101]\i[1601]Everyone loves riding on their friends' backs.\w8\0\s[5]\i[1101]\i[1601] Especially me!\e"
+	"\0\s[5]\i[1101]\i[1601]It's nice having company.\w5\w5\n…\w5\w5\n\0\s[0]\i[1101]\i[1601]This isn't a tip. It's just nice.\e"
+	"\0\s[11]\i[1102]Don't let anyone pull on your shell. It hurts and it's mean.\e"
+	"\0\s[0]\i[1101]\i[1601]It's fun to eat cardboard.\e"
+}
+OnSelfcare_rock : nonoverlap
+{
+	
+}
+OnSelfcare_shell : nonoverlap
+{
+	
+}
+OnSelfcare_fish : nonoverlap
+{
+	
+}
+OnSelfcare_plant : nonoverlap
+{
+	
+}
+OnSelfcare_flower : nonoverlap
+{
+	
+}
+OnSelfcare_fruit : nonoverlap
+{
+	
+}
+
+
+//------------------------------------------------------------------------------
+// Unlock dialogues
+//------------------------------------------------------------------------------
+	//Rock
+OnRock_Unlock
+{
+	"\0\s[4]\i[101]So…\w5\w5 Uhm…\w5\w5 I was wondering…\w5\w5\n/
+	Would you be okay with a gift?\n\n[half]"
+	--
+	"\![*]\q[Of course!,OnRock_UnlockYes]\_l[@10]/
+	\![*]\q[Maybe later…,OnRock_UnlockNo]"
+}
+OnRock_UnlockNo
+{
+	"\0\s[0]\i[101]\i[1106]Oh…\w5\w5 Yeah, okay.\s[0]\i[1106] Later then…\e"
+}
+OnRock_UnlockYes
+{
+	"\0\s[0]\i[104]\i[1696]\i[1700]\i[1807]Really? Okay! I have something right…/
+	\s[0]\i[105]\i[1102]\w5\w5 here…\w5\w5 somewhere…\w5\w5\x/
+	\s[4]\i[105]Is this it…?\w5\w5/
+	\s[0]\i[105]\i[1601]\i[1700]\i[1807] Yeah! Here it is!\x/
+	\s[5]\i[106]It's a rock! And it's for you!\n\n[half]"
+	--
+	"\![*]\q[Thank you.,OnRock_UnlockYesCancel]\_l[@10]/
+	\![*]\q[Tell me about it!,OnRock_UnlockYes2]"
+}
+OnRock_UnlockYes2
+{
+	"\0\s[9]\i[1106]\i[1502]\i[1604]\i[1702]Wait…\w5 Really?\w5 /
+	Really really like you mean it?\w5\w5\n/
+	\s[5]\i[104]\i[1501]\i[1696]\i[1700]\i[1807]/
+	I'd love to! Oh my gosh, I love rocks so much! I can't believe you like them, too!\n/
+	\s[0]\i[104]\i[1501]\i[1696]\i[1807]I could talk about them for hours, really, but…/
+	\s[0]\i[1102]\i[1702]\i[1804]\w5\w5 Let me think of a good fact for you…\x"
+	--
+	rockUnlock = 1
+	--
+	OnFact_Rock
+}
+OnRock_UnlockYesCancel
+{
+	"\0\s[0]You're welcome! I really like that one, and I hope you like it, too.\e"
+}
+	//Shell (initialized @snail_string.dic OnMouseDoubleClick)
+OnShell_Unlock
+{
+	"\0\s[4]\i[1108]\i[1503]\i[1601]\i[1700]Oh!\w8 /
+	Careful with that!\s[4]\i[104]\i[1108]\i[1503]\i[1601]\i[1807]\w5\w5/
+	\s[6]\i[104]\i[1108]\i[1503]\i[1602]\i[1807]\w5\w5\n/
+	\s[9]\i[1105]\i[1502]\i[1604]\i[1702] … Wait…\w5\w5/
+	\s[0]\i[1110]\i[1696] Were you interested in my seashell?\n\n[half]"
+	--
+	"\![*]\q[I was!,OnShell_UnlockYes]\_l[@10]/
+	\![*]\q[It was an accident.,OnShell_UnlockNo]"
+}
+OnShell_UnlockNo
+{
+	"\0\s[0]\i[1106]\i[1503]I see… Well, please be careful. And watch what you're grabbing.\e"
+}
+OnShell_UnlockYes
+{
+	"\0\s[0]\i[1110]\i[1696]Really, you were?\w8/
+	\s[0]\i[104]\i[1110]\i[1696]\i[1807] I didn't know you like shells, too! /
+	Do you have any of your own? Could I see them sometime? /
+	\s[0]\i[1107]\i[1601]\i[1700]Did you collect them yourself!? How many do you have? /
+	This is so exciting!\x/
+	\0\s[8]\i[1103]\i[1696]Wait, sorry! You were asking about mine! So…\w8 /
+	Do you want to hear how I got it?\n\n[half]"
+	--
+	"\![*]\q[I would!,OnShellUnlockYes2]\_l[@10]/ 
+	\![*]\q[Maybe next time…,OnShellUnlockYesCancel]"
+}
+OnShellUnlockYes2
+{
+	"\0\s[5]\i[1696]It was a gift!\w5\w5\w5 /
+	\s[0]\i[1102]\i[1702]\i[1804]That was a short story, wasn't it? Let me try again…\x/
+	\s[6]\i[1601]Ever since I was little, I loved the idea of the ocean. /
+	\s[0]\i[1601]Pictures of it are all so pretty, and reading about it! Oh, it's like a dream!\x/
+	\s[0]\i[1106]\i[1503]But…\w8 Me and salt, we don't really get along, so…\w8 /
+	I've never seen one myself. /
+	\s[0]\i[1601]Then I got this seashell! As a gift! Just like I said. /
+	It was my very first one. And my %(it)favorite%(itoff) one. Isn't it nice?\x"
+	--
+	shellUnlock = 1
+}
+OnShellUnlockYesCancel
+{
+	"\0\s[0]\i[1105]Okay. Well. If you ever want to know, just ask!\e"
+}
+
+//------------------------------------------------------------------------------
+// Dialogue for Unlocked things
+//------------------------------------------------------------------------------
+OnShell_Unlocked : nonoverlap //@snail_string.dic OnMouseDoubleClick
+{
+	"\0\s[0]\i[1101]\i[1601]Looking at my seashell again? I think it's from a clam.\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]The last seashell I tried to make a necklace from broke while I was making the hole for it.\e"
+	"\0\s[0]\i[1102]\i[1602]I made a new seashell belt once, but the seashell got knocked off the first day I wore it. /
+		\s[0]\i[1102]\i[1702]\i[1804]I still don't know where that seashell ended up… Do you think someone else found it?\e"
+	"\0\s[0]Have you ever tried making your own accessories?/
+		\s[0]\i[1103]\i[1696] I think it's kinda fun.\e"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]You sure yank on my stuff a lot…\e"
+	"\0\s[11]\i[1102]I think you're supposed to ask before grabbing at things.\e"
+	"\0\s[0]\i[1107]\i[1603]What, is there something on me?\e"
+	"\0\s[0]\i[1101]\i[1601]Toucha seashell.\e"
+	"\0\s[5]\i[1101]\i[1601]I know, isn't it pretty?\e"
+	"\0\s[0]\i[1103]\i[1696]\i[1703]%(song)~ It's the seashell song~\e"
+	"\0\s[0]\i[1102]\i[1702]\i[1804]I should make another one of these…\w5\w5 /
+		\s[0]\i[1103]\i[1696]But with %(color) beads!\e"
+	"\0\s[0]\i[1105]Is it morbid to say I kinda want a conch shell necklace?\e"
+	"\0\s[0]\i[1107]\i[1601]Maybe I should make some accessories with my favorite rocks.\e"
+}
+
+
+
+//------------------------------------------------------------------------------
+// Envelopes
+//------------------------------------------------------------------------------
+color
+{
+	"alabaster"
+	"amber"
+	"amethyst"
+	"aqua"
+	"aquamarine"
+	"auburn"
+	"azure"
+	"beige"
+	"black"
+	"blond"
+	"blue"
+	"bronze"
+	"brown"
+	"burgundy"
+	"carmine"
+	"cerise"
+	"cerulean"
+	"champagne"
+	"charcoal"
+	"chartreuse"
+	"cinnabar"
+	"citrine"
+	"copper"
+	"coral"
+	"cream"
+	"crimson"
+	"cyan"
+	"denim"
+	"drab"
+	"ebony"
+	"eggshell"
+	"emerald"
+	"fallow"
+	"fuchsia"
+	"gold"
+	"goldenrod"
+	"granite"
+	"grey"
+	"green"
+	"gunmetal"
+	"indigo"
+	"ivory"
+	"jade"
+	"jet"
+	"lavender"
+	"lilac"
+	"magenta"
+	"mahogany"
+	"marigold"
+	"maroon"
+	"mauve"
+	"mint"
+	"mulberry"
+	"navy"
+	"nickel"
+	"ochre"
+	"onyx"
+	"opal"
+	"orange"
+	"orchid"
+	"oxblood"
+	"periwinkle"
+	"pewter"
+	"pink"
+	"platinum"
+	"purple"
+	"red"
+	"rose"
+	"ruby"
+	"russet"
+	"rust"
+	"saffron"
+	"sage"
+	"sapphire"
+	"scarlet"
+	"sepia"
+	"sienna"
+	"silver"
+	"sinopia"
+	"slate"
+	"steel"
+	"tan"
+	"taupe"
+	"teal"
+	"turquoise"
+	"ultramarine"
+	"umber"
+	"vanilla"
+	"vermillion"
+	"violet"
+	"viridian"
+	"white"
+	"yellow"
+}
+
+song
+{
+	"%(it)"
+	--
+	"tra la la"
+	"la la la"
+	"la da dee"
+	"deedle dee dee"
+	"la da da"
+	"doop de doop de doo"
+	"boop de doop"
+	"ba da da"
+	"oh ah ah"
+	"la da da dee da"
+	"do doo do doo do do"
+	"zippidy doo da"
+	"ra ah ah"
+	"da dee da"
+	"bum bum ba"
+	"bum ta ta"
+	"wah ba ba bah"
+	"la la laa la la"
+	"ohhh ah"
+	"pah pah pah pah"
+	"do bee do bee"
+	"do do bee doo"
+	"bum ba bum"
+	"ba ba ba"
+	"boom bum ba"
+	"da da da da"
+	"buh oh"
+	"ah da ah oh"
+	"ba da da doh"
+	"ah oh"
+	"ra da doh"
+	"ba da bum"
+	"dum ta"
+	"dum dum ta"
+	"la la ah ah"
+	"ayy ohh ayy ohh"
+	"ohh oh oh oh"
+	"oh woah"
+	"doo do doo"
+	--
+	"%(def)"
+}
+
+think
+{
+	"\0\s[0]Oh! I've got one!"
+	"\0\s[0]\i[1105]Think…\w8 Think…\w8"
+	"\0\s[0]\i[1101]Fact time!"
+	"\0\s[0]\i[1107]Sooo… Did you knooow…"
+	"\0\s[5]\i[1107]\i[1696]\i[1703]%(song) %(song), this is my fact song~"
+	"\s[0]Okay, I've got a nice %(color) colored fact for you."
+	"\0\s[0]\i[1107]\i[1501]FACT!"
+	"\0\s[0]\i[1101]Bet you don't know this one."
+	"\0\s[0]\i[1105]I can't remember if I've shared this one…\w8\s[0] Oh well."
+	"\0\s[5]\i[103]I have %(it)one%(def) fact. As a treat."
+}
+
+rock
+{
+	"andesite"
+	"basalt"
+	"shoshonite"
+	"carbonatite"
+	"corsite"
+	"gabbro"
+	"granite"
+	"hyaloclastite"
+	"ignimbrite"
+	"kimberlite"
+	"norite"
+	"obsidian"
+	"phonolite"
+	"pumice"
+	"scoria"
+	"chalk"
+	"chert"
+	"flint"
+	"claystone"
+	"siltstone"
+	"shale"
+	"slate"
+	"coquina"
+	"greywacke"
+	"itacolumite"
+	"limestone"
+	"oolite"
+	"phosphorite"
+	"sandstone"
+	"travertine"
+	"blueschist"
+	"eclogite"
+	"gneiss"
+	"greenschist"
+	"hornfels"
+	"marble"
+	"migmatite"
+	"phyllite"
+	"quartzite"
+	"soapstone"
+}

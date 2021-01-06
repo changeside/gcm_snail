@@ -1,0 +1,5 @@
+charset,UTF-8
+type,balloon
+name,snail_balloon
+directory,gcm_snail_b
+refresh,1

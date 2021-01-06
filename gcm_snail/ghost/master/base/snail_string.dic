@@ -1,0 +1,199 @@
+//------------------------------------------------------------------------------
+// File		:snail_string.dic
+//
+//			:Shiori functions etc.
+//
+// Var		:togglefirst
+//           shellUnlock
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+// Check if dialogue pool = empty or not unlocked
+//------------------------------------------------------------------------------
+DIALOGUE
+{
+	//_argv[0] == pool name
+	//_argv[1] == unlock var
+	_ret = 0; _txt = ""; _var = TOSTR(_argv[1])
+	if ISFUNC(_argv[0]) == 0; _ret //if not a function; return zero
+
+	if _argc == 2 && _argv[1] != "" && EVAL(_var) != 1; //if unlock var given, but isn't 1
+		_ret
+	else; _txt = EVAL(_argv[0]) //else check for dialogue
+		
+	if _txt != ""; _ret = 1 //if there's sth in the function; return 1
+	_ret
+}
+
+//------------------------------------------------------------------------------
+// Shiori function occurs on cancelled input box (X)
+//------------------------------------------------------------------------------
+OnUserInputCancel //ensures important input gets inputted
+{
+    //reference0 = function name
+}
+
+//------------------------------------------------------------------------------
+// Mouse functions (unlocks items/talk)
+//------------------------------------------------------------------------------
+OnMouseDoubleClick
+{
+	if reference4 == "necklace" && SHIORI3FW.CanTalk
+	{
+		if shellUnlock; OnShell_Unlocked //@snail_talk.dic
+		else;           OnShell_Unlock //@snail_talk.dic
+	}
+	elseif (reference4 == "face" || reference4 == "shell") && SHIORI3FW.CanTalk
+	{
+		"\0\s[7]\i[1109]\i[1601]\i[1700]Eek!\s[20]\w5\w5\s[22]\e"
+	}
+	else; OnMenu //@snail_menu.dic
+}
+
+//------------------------------------------------------------------------------
+// Key press
+//------------------------------------------------------------------------------
+OnKeyPress
+{
+	case reference0
+	{
+		when "t" {
+			if SHIORI3FW.CanTalk; AiTalk //@snail_talk.dic
+		}
+		when "s" {
+			if SHIORI3FW.CanTalk; OnSelfcare //@snail_talk.dic
+		} 
+		when "f" {
+			if SHIORI3FW.CanTalk; OnFact //@snail_talk.dic
+		}
+	}
+}
+
+//------------------------------------------------------------------------------
+// Render functions
+//------------------------------------------------------------------------------
+OnSurfaceRestore
+{
+	"\1\s[-1]\0\s[0]"
+}
+OnGhostChanged
+{
+	OnBoot //@snail_boot.dic
+}
+OnGhostChanging
+{
+	OnClose //@snail_boot.dic
+}
+OnWindowStateRestore
+{
+    OnSurfaceRestore
+}
+
+//------------------------------------------------------------------------------
+// Install
+//------------------------------------------------------------------------------
+OnInstallComplete
+{
+	"\0\s[0]\i[1107]Oh!\w8\s[0]\i[1101] Did you bring someone else home?\w8 …\w8\0\s[8]\i[1101] You really like taking things right off the ground, huh?\e"
+}
+//------------------------------------------------------------------------------
+// Text modification (eval for script input)
+//------------------------------------------------------------------------------
+OnTranslate
+{
+    _talk = reference0
+    _talk = EVAL('"' + REPLACE(_talk,'"','" + CHR(0x22) + "') + '"')
+    if "OnClothes" !_in_ reference2;
+	    _talk = TextOnlyTranslator(_talk,'TextOnlyTranslatorFunc')
+    TOSTR(_talk)
+}
+TextOnlyTranslator
+{
+	_string = RE_SPLIT(_argv[0],'\\(\\|q\[.*?\]\[.*?\]|[!&8cfijmpqsn]\[.*?\]|[-*+014567bcehntuvxz]|_[ablmsuvw]\[.*?\]|__(t|[qw]\[.*?\])|_[!?+nqsV]|[sipw][0-9])')
+	_n = ARRAYSIZE(_string)
+	_tag = RE_GETSTR()
+	_tr = ''
+	_qs = 0
+
+	for _i = 0 ; _i < _n ; _i++ {
+		_tr += EVAL("%(_argv[1])(_string[_i],_qs)")
+		//add tag & toggle quick section
+		_tr += _tag[_i]
+		if '\_q' _in_ _tag[_i] {
+			_qs = ! _qs
+		}
+	}
+
+	_tr
+}
+TextOnlyTranslatorFunc //Text only replacements; no regards for tags
+{
+    //_argv[0] = text to parse
+	//_argv[1] = if it's a quicksection
+    
+    _text = _argv[0]
+	_text = REPLACE(_text,"''","%(CHR(34))") //'' to "
+	_text
+}
+
+//------------------------------------------------------------------------------
+// Update functions
+//------------------------------------------------------------------------------
+OnUpdateCheckComplete //Check if new update available
+{
+	if (reference0 == "none" && updatecheck); updatecheck = 0 //no new files
+ 	else; updatecheck = 1
+}
+OnUpdateCheckFailure { updatecheck = 0 }
+OnUpdateComplete
+{
+	if reference0 == "none" && updatecheck; //if the ghost had nothing to update with
+		updatecheck = 0
+ 	else; //if the ghost has updated successfully
+		OnUpdate_Finish
+}
+OnUpdateFailure
+{
+	updatecheck = 0
+}
+OnUpdate.OnMD5CompareFailure //occurs if a file is missing.
+{
+}
+OnUpdate_Finish
+{
+	Version = OnVersionSet
+	updatecheck = 0
+}
+
+
+//------------------------------------------------------------------------------
+// Base functionality functions/SSP/Shiori
+//------------------------------------------------------------------------------
+OnDisplayChange
+{
+	displaybpp = reference0
+ 	displaywidth = reference1
+	displayheight = reference2
+}
+OnAnchorSelect //enables website opening
+{
+	if "http://" _in_ reference0 || "https://" _in_ reference0;
+		"\j[%(reference0)]"
+}
+On_hwnd
+{
+	sakurahwnd    = reference0[0]
+	kerohwnd      = reference0[1]
+	sakurablnhwnd = reference1[0]
+	keroblnhwnd   = reference1[1]
+}
+On_\person
+{
+ 	person
+}
+On_otherghostname
+{
+	ghostexlist = reference
+	ghostexcount = ARRAYSIZE(ghostexlist)
+}
+

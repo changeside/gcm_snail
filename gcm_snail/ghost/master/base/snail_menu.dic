@@ -1,0 +1,409 @@
+//------------------------------------------------------------------------------
+// File		:snail_menu.dic
+//
+//			:Sakura menu
+//
+// Var		:updatecheck
+//------------------------------------------------------------------------------
+
+
+OnMenu
+{
+	_update = ""; _selfcare = ""; _fact = ""
+	if updatecheck; _update = "\![*]\q[Update,OnUpdate_Select]"
+	if DIALOGUE("OnSelfcare"); _selfcare = "\q[Self care tip,OnSelfcare]\_l[100]\q[(Choose topic),OnMenu_Selfcare]"
+	else; _selfcare = "%(st)Self care tip%(def)"
+	if DIALOGUE("OnFact"); _fact = "\q[Facts,OnFact]\_l[100]\q[(Choose topic),OnMenu_Fact]"
+	else; _fact = "%(st)Facts%(def)"
+
+	"\0\s[0]\b[0]\_q%(b)Menu%(def)\_l[180]%(_update)\n\n[half]/
+	\q[Say something,OnTalk]\_l[100]\q[(Change talkrate),OnTalk_Aitalkinterval]\n/
+	%(_selfcare)\n/
+	%(_fact)\n/
+	\q[Customization,OnClothes]\n/
+	\q[Reset,OnReset]\n\n[half]/
+	\![*]\q[Close,OnTERMINATE]"
+}
+
+OnTalk { AiTalk } //@snail_talk.dic
+OnTalk_Aitalkinterval
+{
+	"\b[0]\_q\![set,autoscroll,disable]%(b)Random talk frequency%(def)\n\n[half]/
+	Currently set to ''%(talkintervalprint)''\n\n[half]/
+	\q[Change,OnTalk_Change]/
+	\n\n[half]\![*]\q[Back,OnMenu]"
+}
+OnTalk_Change
+{
+	case aitalkinterval {
+		when 45; aitalkinterval = 90
+		when 90; aitalkinterval = 270
+		when 270; aitalkinterval = 400
+		when 400; aitalkinterval = 0
+		when 0; aitalkinterval = 45
+		others; aitalkinterval = 270
+	}
+	OnTalk_Aitalkinterval
+}
+talkintervalprint
+{
+	case aitalkinterval {
+		when 90; "Every minute";
+		when 270; "Every 3 minutes"
+		when 400; "Every 5 minutes"
+		when 0; "Silent"
+		when 45; "Every 30 seconds"
+		others; "Every 3 minutes" //270
+	}	
+}
+//OnSelfcare @snail_talk.dic
+OnMenu_Selfcare
+{
+	_topics = IARRAY
+	_topics = ("main","rock","shell","fish","plant","flower","fruit")
+	_print = IARRAY; _emptycheck = 1; _temp = ""
+
+	foreach _topics; _t {
+		if _t != "main"; _temp = _t + "Unlock" //fetch unlockvar name
+		if DIALOGUE("OnSelfcare_%(_t)",_temp) { //check if pool has dialogue & is unlocked
+			_temp = Capitalize(_t) //capitalize topic
+			_print ,= "\q[%(_temp),OnSelfcare_%(_t)]" //assign option to click
+			_emptycheck = 0
+		}
+		else; _print ,= ""
+	}
+	if _emptycheck; _temp = "Sadly. Here's nothing."
+	else; _temp = ""
+	"\b[0]\_q\![set,autoscroll,disable]%(b)Selfcare%(def)\n\n[half]/
+	%(_temp)/
+		%(_print[0])\n/
+		%(_print[1])\_l[120]%(_print[2])\n/
+		%(_print[3])\_l[120]%(_print[4])\n/
+		%(_print[5])\_l[120]%(_print[6])\n\n[half]/
+	\![*]\q[Back,OnMenu]"
+}
+//OnFact @snail_talk.dic
+OnMenu_Fact
+{
+	_topics = IARRAY
+	_topics = ("main","rock","shell","fish","plant","flower","fruit")
+	_print = IARRAY; _emptycheck = 1; _temp = ""
+
+	foreach _topics; _t {
+		if _t != "main"; _temp = _t + "Unlock" //fetch unlockvar name
+		if DIALOGUE("OnFact_%(_t)",_temp) { //check if pool has dialogue & is unlocked
+			_temp = Capitalize(_t) //capitalize topic
+			_print ,= "\q[%(_temp),OnFact_%(_t)]" //assign option to click
+			_emptycheck = 0
+		}
+		else; _print ,= ""
+	}
+	if _emptycheck; _temp = "Sadly. Here's nothing."
+	else; _temp = ""
+	"\b[0]\_q\![set,autoscroll,disable]%(b)Facts%(def)\n\n[half]/
+	%(_temp)/
+		%(_print[0])\n/
+		%(_print[1])\_l[120]%(_print[2])\n/
+		%(_print[3])\_l[120]%(_print[4])\n/
+		%(_print[5])\_l[120]%(_print[6])\n\n[half]/
+	\![*]\q[Back,OnMenu]"
+}
+OnReset //reset unlockables and go back to intro
+{
+	OnFirstBoot
+}
+
+
+//------------------------------------------------------------------------------
+// Customization menu and handling
+//------------------------------------------------------------------------------
+OnClothes
+{
+	_bold = ""; _tabs = ""; _tabname = ""; _buffer = ""; _content = ""; _nb = IARRAY; _pointer = 0; state = -1
+	_linebreak = ("","","","\n","","\n","","","\n")
+	_buttons = ""
+	if reference0 == ""; tempnb = 0 //remember tabs if clothing changes
+	else; tempnb = TOINT(reference0)
+	if reference1 == "CHANGE"; pnumb = 0
+	//add tabs to print; categories 
+	for _i = 0; _i < ARRAYSIZE(categoryAr); _i++
+	{
+		if _i == tempnb; _bold = b
+		else; _bold = ""
+		_tabname = TOSTR(categoryAr[_i])
+		_tabname = REPLACE(_tabname,"_"," ")
+		_tabname = Capitalize(_tabname)
+		_tabs += _bold + "\q[" + _tabname + ",OnClothes," + _i + ",CHANGE]%(def)\_l[@15]" + _linebreak[_i]
+	}
+	//fetch contents of the current tab
+	_tabname = categoryAr[tempnb]
+
+	_nb = RE_ASEARCHEX(",%(_tabname),",dresslogAr)
+	     //NB of item to render from (page handling)
+	if (pnumb * 8) > (ARRAYSIZE(_nb)-1);	//if printing is too far (leads to empty page)
+		pnumb = 0
+	_pointer = pnumb * 8
+	
+	for _i = 0; _i < 8; _i++
+	{
+		_arr = dresslogAr[_nb[_pointer]] //fetch array line
+		_state = TOINT(_arr[ARRAYSIZE(_arr)-2]) //fetch state of item
+		_iname = REPLACE(_arr[2],"_"," ") //fetch name of item
+			if _i != 0; _content += "\n"
+		//if equiped add * 
+		if _state == 1; _content += "*"
+		//print item with information for \![bind] function
+		_content += "\_l[16]\q[" + _iname + ",OnClothes_Change,%(_arr[1]),%(_arr[2]),%(_state)]"
+
+		_pointer++
+		if _pointer == ARRAYSIZE(_nb) {
+			_i++
+			break
+		} 
+	}
+	//Page number bar
+	_spacing = ""
+	_spacing = "\n[" + (100*(9-_i) + 50) + "]" //empty lines for correct spacing
+	if pnumb >= 1; 
+        _buttons += "\![*]\q[Prior page,OnPageFlip,dec,%(_tabname)]"
+	if (ARRAYSIZE(_nb) > 5 && ARRAYSIZE(_nb) > _pointer);
+        _buttons += "\_l[150]\![*]\q[Next page,OnPageFlip,inc,%(_tabname)]"
+	
+	//print menu
+	"\b[2]\_q%(b)Customization%(def)\n\n[half]/
+	\![*]\q[Reset Look,OnClothes_Reset]/
+	\_l[@20]\![*]\q[Random Look,OnClothes_Shuffle]\n\n[half]/
+		%(_tabs)%(def)\n---\n/
+		%(_content)/
+	%(_spacing)\![*]\q[Back,OnMenu]\_l[60]%(_buttons)"
+}
+OnPageFlip
+{
+	if reference0 == "inc"; pnumb++
+	elseif reference0 == "dec"; pnumb--
+	--
+	"\![raise,OnClothes,%(tempnb)]"
+}
+OnClothes_Change
+{
+	_state = TOINT(reference2)
+	_state = !_state
+	
+	"\![bind,%(reference0),%(reference1),%(_state)]"
+}
+OnClothes_Reset
+{
+	_print = ""
+	--
+	foreach dresslogAr; _item
+	{
+		_category = TOSTR(_item[1])
+		_name = TOSTR(_item[2])
+		--
+		if TOSTR(_item[3]) == "default";
+			_print += "\![bind,%(_category),%(_name),1]"
+		else;
+			_print += "\![bind,%(_category),%(_name),0]"
+	}
+	--
+	_print
+	--
+	if _argv[0] != "shuffle";
+		OnCustomization
+}
+OnClothes_Shuffle
+{
+	OnClothes_Reset("shuffle")
+	--
+	_print = ""
+	_priorLine = ""
+	_categoryItems = IARRAY
+	_i = -1
+	--
+		//count items in category
+	for _x = 0; _x < ARRAYSIZE(dresslogAr); _x++
+	{
+		_line = dresslogAr[_x]
+		if _priorLine[1] != _line[1] //new category
+		{
+			_categoryItems ,= 1
+			_i++
+		}
+		else
+		{
+			_categoryItems[_i] = _categoryItems[_i]+1
+		}
+		_priorLine = _line
+	}
+	--
+	_tick = 0
+		//draw 1 random item to bind for each category
+	for _x = 0; _x < ARRAYSIZE(_categoryItems); _x++
+	{
+		_rand = RAND(_categoryItems[_x]+1)
+		--
+		_category = dresslogAr[_tick+_rand][1]
+		_name = dresslogAr[_tick+_rand][2]
+		--
+		_print += "\![bind,%(_category),%(_name),1]"
+		--
+		_tick += _categoryItems[_x]
+	}
+	--
+	_print
+}
+OnClothes_Categories
+{
+	_priorLine = ""; categoryAr = IARRAY
+	foreach dresslogAr; _line
+	{
+		if _priorLine != _line[1]
+		{
+			categoryAr ,= _line[1]
+		}
+		_priorLine = _line[1]
+	}
+}
+
+OnNotifyDressupInfo
+{
+	//"0,legs,white_sandals,default,mustselect,0,,"
+	dresslogAr = reference
+}
+OnDressupChanged
+{
+	"\![raise,OnClothes,%(tempnb)]"
+}
+
+
+
+/* OLD DRESS UP MENU 
+OnCustomization
+{
+	_print = "\b[2]\_q\![set,autoscroll,disable]%(b)Customization%(def)"
+	_print += "\_l[@20]\![*]\q[Collapse Menu,OnCustomization_Collapse]\n\n[half]"
+	_priorLine = ""
+	_categorynb = -1
+	
+		//random customization
+		//default outfit
+	_print += "\![*]\q[Reset Look,OnCustomization_Reset]"
+	_print += "\_l[@20]\![*]\q[Random Look,OnCustomization_Shuffle]\n\n[half]"
+	
+	foreach dresslogAr; _line
+	{
+		if (_priorLine != "" && _priorLine[1] != _line[1]);
+			_print += "\n\n[half]"
+		
+		//print category of line if not printed yet
+		if _priorLine[1] != _line[1]
+		{
+			_categoryName = TOSTR(_line[1])
+			_categoryName = REPLACE(_categoryName,"_"," ")
+			_buffer = SUBSTR(_categoryName,0,1)
+			_categoryName = ERASE(_categoryName,0,1)
+			_categoryName = INSERT(_categoryName,0,TOUPPER(_buffer))
+			_categorynb++
+			_print += "\q[" + _categoryName + ",OnCustomization_Category," + _categorynb + "]"
+		}
+		//print item if category is expanded
+		if categoryArray[_categorynb] == 1
+		{
+			_print += "\n\_l[10]"
+			_nameItem = REPLACE(_line[2],"_"," ")
+			_marker = TOINT(ARRAYSIZE(_line)-2)
+			_stateItem = _line[_marker]
+			
+			if _line[_marker] == "1";
+				_print += "*"
+			//information for \![bind] function
+			_print += "\_l[15]\q[" + _nameItem + ",OnCustomization_Item,"
+			_print += _line[1] + "," + _line[2] + "," + _stateItem
+			_print += "]"
+		
+		}
+		_priorLine = _line
+	}
+	_print += "\n\n[half]\![*]\q[Back,OnMenu]"
+	_print
+}
+OnCustomization_Collapse
+{
+	categoryArray = (0,0,0,0,0,0,0,0,0)
+	--
+	OnCustomization
+}
+OnCustomization_Reset
+{
+	_print = ""
+	--
+	for _i = 0; _i < ARRAYSIZE(dresslogAr); _i++
+	{
+		_item = SPLIT(dresslogAr[_i],",")
+		_category = TOSTR(_item[1])
+		_name = TOSTR(_item[2])
+		--
+		if TOSTR(_item[3]) == "default"
+		{
+			_print += "\![bind,%(_category),%(_name),1]"
+		}
+		else
+		{
+			_print += "\![bind,%(_category),%(_name),0]"
+		}
+	}
+	--
+	_print
+	--
+	if _argv[0] != "shuffle";
+		OnCustomization
+}
+OnCustomization_Shuffle
+{
+	OnCustomization_Reset("shuffle")
+	--
+	_print = ""
+	_priorLine = ""
+	_categoryItems = IARRAY
+	_i = -1
+	--
+		//count items in category
+	for _x = 0; _x < ARRAYSIZE(dresslogAr); _x++
+	{
+		_line = dresslogAr[_x]
+		if _priorLine[1] != _line[1] //new category
+		{
+			_categoryItems ,= 1
+			_i++
+		}
+		else
+		{
+			_categoryItems[_i] = _categoryItems[_i]+1
+		}
+		_priorLine = _line
+	}
+	--
+	_tick = 0
+		//draw 1 random item to bind for each category
+	for _x = 0; _x < ARRAYSIZE(_categoryItems); _x++
+	{
+		_rand = RAND(_categoryItems[_x]+1)
+		--
+		_category = dresslogAr[_tick+_rand][1]
+		_name = dresslogAr[_tick+_rand][2]
+		--
+		_print += "\![bind,%(_category),%(_name),1]"
+		--
+		_tick += _categoryItems[_x]
+	}
+	--
+	_print
+}
+OnCustomization_Category
+{
+	_i = TOINT(reference0)
+	categoryArray[_i] = (categoryArray[_i] + 1) % 2
+	--
+	OnCustomization
+}*/
+

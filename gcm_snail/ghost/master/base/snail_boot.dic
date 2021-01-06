@@ -1,0 +1,138 @@
+//------------------------------------------------------------------------------
+// File		:snail_boot.dic
+//
+//			:Boot/Close/Firstboot functions
+//
+// Var		:rockUnlock
+//			 shellUnlock
+//			 fishUnlock
+//			 plantUnlock
+//			 flowerUnlock
+//			 fruitUnlock
+//			 dresslogAr
+//			 categoryAr
+//			 aitalkinterval
+//			 togglefirst
+//			 updatecheck
+//------------------------------------------------------------------------------
+
+
+OnVersionSet { TOREAL(2.0) }
+On_homeurl
+{
+	"https://raw.githubusercontent.com/changeside/gcm_snail/main/gcm_snail/"
+}
+
+
+//------------------------------------------------------------------------------
+// First boot and variable reset/init
+//------------------------------------------------------------------------------
+OnVariables
+{
+	rockUnlock = 0
+	shellUnlock = 0
+	fishUnlock = 0
+	plantUnlock = 0
+	flowerUnlock = 0
+	fruitUnlock = 0
+	if ISVAR("categoryAr") == 0; categoryAr = IARRAY
+	aitalkinterval = 270
+	updatecheck = 0
+}
+OnFirstBoot
+{
+	OnVariables
+	--
+	OnClothes_Categories
+	--
+	"\0\t\![enter,passivemode]\s[20]\1/
+	(I decided to go for a walk earlier.\w8\n/
+	On the way back home,\w5 I found this empty shell.\w8\nIt's not something you see every day, you know?\w8\n/
+	A green shell sitting in the middle of your path.)\x/
+	\1(I can't wait to clean it up and show it off to—)/
+	\0\s[23]\w5\w5/
+	\1\n\n(WHAT IS THAT!?)\x/
+	\1(IT WAS EMPTY!\w5 I THOUGHT IT WAS EMPTY!?)\w8/
+	\0\s[22]\w8.\w8.\w8.\w8/
+	\1\n\n(I checked inside and didn't see anything!\w8 How could I miss this?)\w8/
+	\0\n\n.\w5.\w5.\w5.\w5.\w5.\w5?/
+	\1\n\n(No, it's fine, I'll just put it back where I found—)/
+	\0\n\nHello\w3o\w3o\w3.\w3.\w3.\w3?\x/
+	\1\c(.\w8.\w8.\w8\w5\w5 It can talk.\w3.\w3.\w3?)\w5\w5/
+	\0\s[0]Oh\w3.\w3.\w3.\w8\w8 I guess I'm here now...\w8/
+	\1\n\n(FACE.\w5 IT'S GOT A FACE.)\w8/
+	\0\s[1]\i[1503]\i[1105]\n\nUhm...\w5\w5 It's nice to meet you?/
+	\1\n\n(This...\w8 is turning into a very strange day.)\0\![leave,passivemode]"
+}
+
+
+//------------------------------------------------------------------------------
+// Boot/Close functions
+//------------------------------------------------------------------------------
+OnBoot
+{
+	OnClothes_Categories //save clothing categories for menu render
+	--
+	updatecheck = 1
+	--
+	"\b[4]\![updatebymyself,checkonly]" //Check if update is available; auto hides the balloon that pops up on check
+	--
+	"\1\s[-1]"
+	--
+	"\0\b[0]\s[7]\i[1109]\i[1601]\i[1700]AH!\w5\w5 … \w8Oh\0\s[6]\i[1107]\i[1503]\i[1602] it's you.\w8 You scared me.\e"
+	"\0\b[0]\s[2]\i[104]\i[1107]\i[1504]\i[1703]%(song)~\w5\w5\0\s[0]\i[1103]\i[1696] Hello again!\e"
+	"\0\b[0]\s[5]\i[1101]\i[1601]Hi!\w8 It's me!\e"
+	"\0\b[0]\s[0]\i[1107]\i[1603]Look!\w8 I'm here again!\e"
+	"\0\b[0]\s[0]\i[104]\i[1110]\i[1696]\i[1807]Hello hello hello hello!\e"
+	"\0\b[0]\s[0]\i[1101]\i[1601]Hello! I was just thinking about you, too.\e"
+	"\0\b[0]\s[0]Oh, it's nice of you to come see me.\e"
+	"\0\s[2]\i[101]\i[1107]\i[1504]\i[1807]\1(...\w8 Looks like she just wandered in here.)\0\e"
+}
+OnClose
+{
+	"\0\s[9]\i[1105]\i[1502]\i[1604]\i[1702]Oh, okay.\w8 I'll…\w8 be here!"
+	"\0\s[0]\i[1107]\i[1601]If you're going, can you bring me outside?\w8 Thanks!"
+	"\0\s[6]\i[1101]Time for a nap."
+	"\0\s[0]\i[1101]\i[1601]See you later then!"
+	"\0\s[5]\i[1101]\i[1601]Bye for now!"
+	"\0\s[0]\i[1102]\i[1504]\i[1801]Already?\w8 Okay.\w8 Take care!"
+	"\0\s[0]\i[1703]%(song)~ Goodbye song~"
+	"\0\s[0]\i[1103]\i[1696]Let's talk again soon!"
+	--
+	"\w8\w5\-"
+}
+
+
+
+//------------------------------------------------------------------------------
+// 	Formatting envelopes
+//------------------------------------------------------------------------------
+
+//Surfaces
+sigh
+{
+	"\s[6]\i[1107]\i[1604]"
+}
+thoughtful
+{
+	"\s[0]\i[1102]\i[1702]\i[1804]"
+}
+flap
+{
+	"\i[109]\i[1810]"
+}
+
+//Font
+def { "\f[default]"  } //default
+b   { "\f[bold,1]"	 } //bold
+it  { "\f[italic,1]" } //italics
+itoff  { "\f[italic,0]" }
+st  { "\f[strike,1]" } //strike-through
+//Format
+Capitalize
+{
+  _buffer = SUBSTR(_argv[0],0,1)
+  _argv[0] = ERASE(_argv[0],0,1)
+  _argv[0] = INSERT(_argv[0],0,TOUPPER(_buffer))
+  _argv[0]
+}
